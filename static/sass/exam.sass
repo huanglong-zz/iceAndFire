@@ -1,0 +1,215 @@
+@import '~static/sass/var'
+@import '~static/sass/color'
+@import '~static/sass/mixin'
+
+.container
+  +font-dpr(10px)
+  position: relative
+  text-align: center !important
+
+.exam-background
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 0
+  height: 100%
+  background: url('#{$imgCdn}exam-background.jpg') no-repeat
+  background-size: cover
+  filter: brightness(.25)
+  transform: translateZ(-99999px)
+
+.exam-main
+  position: absolute
+  top: 15%
+  left: 50%
+  transform: translate(-50%, 0)
+  z-index: 2
+  color: $white
+  font-size: 2em
+  
+  .exam-back
+    position: absolute
+    left: 10%
+    top: -1.5rem
+    z-index: 3
+    font-size: 0.8em
+
+  .exam-title
+    margin-bottom: 10%
+    
+  .exam-content
+    >*
+      width: 80%
+      margin: auto
+      height: 1rem
+      line-height: 1rem
+      +border-box
+    
+    .exam-content-input
+      color: $black
+      text-align: center
+      margin-bottom: 5%
+    .exam-content-warning
+      animation: warning .3s linear
+      -webkit-animation: warning .3s linear
+
+    .exam-content-button
+      margin-top: 6%
+      background: url('#{$imgCdn}exam-download.jpg') no-repeat
+      background-size: cover
+
+.exam-result
+  height: 100%
+  padding-top: 7%
+  +border-box
+  position: absolute
+  top: 0
+  left: 0
+  display: none
+
+  &.active
+    display: block
+
+    .exam-card
+      animation: flyIn 1500ms ease
+      transform: rotateX(0) rotateY(0) rotate(0) perspective(100px) scale(1)
+    .exam-vortex
+      z-index: -9
+
+  > *
+    width: 100%
+
+  .exam-vortex
+    position: absolute
+    left: 1.75rem
+    width: 6.5rem !important
+
+  .exam-vortex
+    widows: 6.5rem
+    height: 6.5rem
+    top: 43%
+    transform: translateY(-50%) rotate(0) translateZ(-9999px)
+    display: block
+    z-index: 1 !important
+    animation: rotate 2s infinite linear
+  
+  .exam-card
+    width: 95vw
+    height: 80vh
+    top: calc(43% - 40vh)
+    left: calc(50% - 47.5vw)
+    transform: rotateX(90deg) rotateY(90deg) rotate(90deg) scale(.1) perspective(100px)
+    position: absolute
+    z-index: 999 !important
+    +border-box
+    padding: 10% 7%
+    background: url('#{$imgCdn}exam-card.png') no-repeat
+    background-size: 100% 100%
+    border-radius: 1em
+    box-shadow: 0 0 1.2em rgba(255, 255, 255, .5)
+
+    img
+      display: block
+      width: 75%
+      margin: 0 auto .1rem
+
+    .exam-card-title
+      display: inline-block
+      font-size: 1.5em
+      border: .15em solid #e6b467
+      outline: 1.5px solid $black
+      padding: .2em .4em
+      margin-bottom: .5em
+      background: $black
+      color: $white
+
+    .exam-card-role
+      font-size: 2.4em
+      font-weight: bold
+      +text-overflow
+    
+    .exam-card-content
+      font-size: 1.5em
+      margin: .2em auto 0
+
+  .exam-download
+    height: 1.5rem
+    line-height: 1.5rem
+    position: fixed
+    bottom: 0
+    left: 0
+    z-index: 2
+    font-size: 1.9em
+    letter-spacing: .08em
+    text-align: center
+    color: $white
+    background: url('#{$imgCdn}exam-download.jpg') no-repeat
+    background-size: cover
+
+// animation of exam
+
+.previewImg
+  position: fixed
+  top: -9999px
+  left: -9999px
+  z-index: -999
+  opacity: 0
+  width: 0px
+  height: 0px
+
+.rotate-enter-active, .rotate-leave-active
+  transition: all 6s linear
+
+.rotate-enter
+  transform: rotateZ(720deg) translateZ(-999px) !important
+
+.rotate-leave-to
+  opacity: 0
+
+.slide-top-enter-active, .slide-top-leave-active
+  transition: transform 1s cubic-bezier(.26, .01, .24, 1.74)
+
+.slide-top-enter, .slide-top-leave-to
+  bottom: -1.5rem
+  transform: translateY(1.5rem)
+
+.crawl-enter-active
+  transition: all 2s linear
+  transform-origin: 50% 63%
+  -webkit-transform-origin: 50% 63%
+  transform: scale(1)
+  opacity: 1
+
+.crawl-enter
+  transform: scale(0)
+  opacity: 0
+
+@keyframes flyIn
+  0%
+    transform: scale(.1) rotateX(90deg) rotateY(90deg) rotate(90deg) perspective(100px)
+  80%
+    transform: scale(1) rotateX(0) rotateY(0) rotate(-10deg) perspective(100px)
+  90%
+    transform: scale(1) rotateX(0) rotateY(0) rotate(6deg) perspective(100px)
+  100%
+    transform: scale(1) rotateX(0) rotateY(0) rotate(0) perspective(100px)
+
+@keyframes rotate
+  from
+    transform: translateY(-50%) rotate(0) translateZ(-9999px)
+  to
+    transform: translateY(-50%) rotate(360deg) translateZ(-9999px)
+
+@keyframes warning
+  0%
+    transform: translateX(0)
+  20%
+    transform: translateX(-5%)
+  40%
+    transform: translateX(5%)
+  60%
+    transform: translateX(-2.5%)
+  80%
+    transform: translateX(2.5%)
+  100%
+    transform: translateX(0)

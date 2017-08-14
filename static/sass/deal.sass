@@ -1,0 +1,193 @@
+@import '~static/sass/mixin'
+@import '~static/sass/color'
+@import '~static/sass/var'
+
+$swiperHeight: 7rem
+
+.container
+  overflow: hidden !important
+  padding-bottom: 0 !important
+  -webkit-overflow-scrolling: auto
+
+  .focus-goods-body
+    height: calc(100% - #{$navHeight})
+    +y-scroll
+
+    .focus-goods-swiper
+      width: 100%
+      position: relative
+
+      img
+        width: 100%
+
+    .focus-goods-content
+      width: 100%
+      padding: $spacing
+      color: $grey-700
+      +font-dpr(10px)
+      +border-box
+
+      .focus-goods-price
+        &:before
+          content: '¥'
+          font-size: 1em
+          padding-top: 1px
+          display: inline-block
+          vertical-align: top
+
+        .focus-goods-price_main
+          font-size: 2em
+          margin: 0 3px
+
+        .focus-goods-price_others
+          font-size: 1.3em
+          vertical-align: text-bottom
+
+      .focus-goods-name
+        font-size: 2em
+        color: $grey-900
+
+      .focus-goods-intro
+        font-size: 1.5em
+        line-height: 1.5em
+        margin: $spacing 0
+
+      .focus-goods-info
+        background: #bde6e2
+        padding: $spacing
+
+        >*
+          padding: $spacing/2 0
+          color: $grey-700
+          transform: scale(0.85)
+
+        >*:not(:last-child)
+          border-bottom: 1px solid $white
+
+      .focus-goods-attentions
+        margin: $spacing 0
+        .title
+          font-size: 1.9em
+
+        ol
+          padding: 0
+          font-size: 1.3em
+          list-style-type: decimal
+          li
+            list-style-position: inside
+            margin: 1em 0
+
+  .focus-goods-footer
+    height: $navHeight
+    +border-box
+    border-top: 1px solid $grey-300
+    text-align: center
+    line-height: $navHeight
+    // position: absolute
+    // bottom: 0
+    // left: 0
+
+    span
+      +font-dpr(16px)
+      padding: $navHeight/10 12%
+      color: $white
+      background: $grey-600
+      border-radius: 3px
+  
+  .focus-goods-pay
+    height: calc(100% - #{$swiperHeight})
+    background: $grey-100
+    position: fixed
+    bottom: 0
+    left: 0
+    z-index: 10
+    +font-dpr(10px)
+    
+    > *
+      +border-box
+      width: 100%
+      margin: auto
+
+    .focus-goods-pay_header
+      height: 12%
+      padding: .5em 1em
+      font-size: 1.6em
+      line-height: 230%
+      border-top: 1px solid $grey-600
+      border-bottom: 1px solid $grey-600
+
+      > span:last-child
+        color: #2196F3
+        float: right
+
+    .focus-goods-pay_body
+      height: 68%
+      
+      .focus-goods-pay_item
+        width: 80%
+        height: 25%
+        margin: auto
+        +border-box
+        border-bottom: 1px solid $grey-600
+        display: flex
+        justify-content: center
+        align-items: center
+        font-size: 0
+
+        > *
+          display: inline-block
+          vertical-align: middle
+          +font-dpr(15px)
+        
+        > *:first-child
+          width: 25%
+          max-height: 90%
+          color: $grey-500
+          text-align: right
+        
+        > *:last-child
+          width: 75%
+          padding-left: 5%
+          background: transparent
+          outline: none
+          border: none
+          color: $black
+
+          > p:last-child
+            margin-top: .3em
+            color: $grey-500
+        
+
+    .focus-goods-pay_footer
+      height: 20%
+      color: $grey-800
+      font-size: 2em
+      display: flex
+      justify-content: center
+      align-items: center
+
+  .modal
+    position: fixed
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    padding: .8em 1.5em
+    text-align: center
+    z-index: 999
+    background: rgba(0, 0, 0, .8)
+    color: $white
+    +font-dpr(16px)
+
+
+.slide-top-enter-active, .slide-top-leave-active
+  transition: transform .3s linear
+
+.slide-top-enter, .slide-top-leave-to
+  bottom: calc(#{$swiperHeight} - 100%)
+  transform: translateY(100%)
+
+.fade-enter-active, .fade-leave-active
+  transition: opacity .35s linear
+
+.fade-enter, .fade-leave-to
+  opacity: 0

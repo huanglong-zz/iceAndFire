@@ -1,0 +1,38 @@
+{
+  "db": "mongodb://localhost/iceAndFile",
+  "port": 3000,
+  "base": "http://localhost:3000",
+  "SITE_ROOT_URL": "http://codingdream.ngrok.cc",
+  "ngrok": "27xx",
+  "shop": {
+    "appID": "wxcaxx",
+    "mchId": "148xx",
+    "notifyUrl": "http://xx.com/wx/n",
+    "key": "imoocisareaxxn"
+  },
+  "wechat": {
+    "appID": "wxe9xx",
+    "appSecret": "ebacaxx",
+    "baseUrl": "http://xx.ngrok.cc",
+    "token": "imoocisarexx"
+  },
+  "mina": {
+    "appid": "wxcacxx",
+    "secret": "352c61a7xx"
+  },
+  "qiniu": {
+    "AK": "-dLG8Kxx",
+    "SK": "wcgqiwkxx",
+    "bucket": "iceandfire",
+    "qiniuURL": "http://xx.bkt.clouddn.com"
+  },
+  "cloudinary": {
+    "cloud_name": "gougou",
+    "api_key": "852224xx",
+    "api_secret": "ht91J3cxxE",
+    "base": "http://res.cloudinary.com/gougou",
+    "image": "https://api.cloudinary.com/v1_1/gougou/image/upload",
+    "video": "https://api.cloudinary.com/v1_1/gougou/video/upload",
+    "audio": "https://api.cloudinary.com/v1_1/gougou/raw/upload"
+  }
+}

@@ -1,0 +1,78 @@
+@import '~static/sass/mixin'
+@import '~static/sass/color'
+@import '~static/sass/var'
+
+.container
+
+  .focusHouse-media
+    position: relative
+    font-size: 0
+
+    img
+      width: 100%
+    
+    .focusHouse-text
+      width: 100%
+      +border-box
+      padding: 0 $spacing
+      text-align: left
+      position: absolute
+      bottom: 5%
+      left: 0
+      color: $white
+      +font-dpr(10px)
+      line-height: .7rem
+
+      .words
+        font-size: 1.6em
+        
+      .name
+        font-size: 2.2em
+
+  .focusHouse-body
+    padding: $spacing
+    +border-box
+
+    .focusHouse-item-section
+      > *
+        width: 100%
+        margin-top: $spacing
+     
+    .focusHouse-item-title 
+      +font-dpr(25px)
+      padding-bottom: $spacing/3
+      border-bottom: 1px solid $grey-700
+
+    .focusHouse-item-body
+      +font-dpr(17px)
+      margin: $spacing 0
+      text-indent: 2em
+      color: $grey-600
+
+      > p
+        margin: 5px 0
+
+      .swornMembers
+        font-size: 0
+        text-indent: 0
+
+        > *
+          display: inline-block
+          vertical-align: top
+
+        img
+          width: 30%
+        
+        .swornMembers-body
+          width: 65%
+          padding-left: 5%
+          +font-dpr(10px)
+
+          .name
+            font-size: 1.7em
+            color: $black
+            margin-bottom: $spacing
+
+          .introduction
+            font-size: 1.4em
+            line-height: $spacing
